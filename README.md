@@ -43,7 +43,7 @@ server using [Authlete Web APIs][AuthleteAPI] as this implementation
 (django-oauth-server) does.
 
 To use this authorization server implementation, you need to get API credentials
-from Authlete and set them in `authlete.init`. The steps to get API credentials
+from Authlete and set them in `authlete.ini`. The steps to get API credentials
 are very easy. All you have to do is just to register your account
 ([sign up][AuthleteSignUp]). See [Getting Started][AuthleteGettingStarted] for
 details.
