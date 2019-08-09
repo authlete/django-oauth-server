@@ -1,0 +1,4 @@
+__pycache__/
+*.py[cdo]
+*$py.class
+.DS_Store
