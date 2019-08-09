@@ -8,7 +8,7 @@ This is an authorization server implementation in Python which supports
 [OAuth 2.0][RFC6749] and [OpenID Connect][OIDC].
 
 This implementation is written using Django API and authlete-python-django
-library. Django][Django] is a web framework written in Python. On the other
+library. [Django][Django] is a web framework written in Python. On the other
 hand, [authlete-python-django][AuthletePythonDjango] is an Authlete's open
 source library which provides utility classes for developers to implement
 an authorization server and a resource server. authlete-python-django in
@@ -139,7 +139,7 @@ See Also
 - [Authlete][Authlete] - Authlete Home Page
 - [authlete-python][AuthletePython] - Authlete Library for Python
 - [authlete-python-django][AuthletePythonDjango] - Authlete Library for Django (Python)
-- [django-resource-server][40] - Resource Server Implementation
+- [django-resource-server][DjangoResourceServer] - Resource Server Implementation
 
 Contact
 -------

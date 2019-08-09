@@ -35,7 +35,7 @@ Authlete について
 -----------------
 
 [Authlete][Authlete] (オースリート) は、OAuth 2.0 & OpenID Connect
-の実装をクラウドで提供するサービスです ([overview][AuthleteOverview])。
+の実装をクラウドで提供するサービスです ([概説][AuthleteOverview])。
 Authlete が提供するデフォルト実装を使うことにより、もしくはこの実装
 (django-oauth-server) でおこなっているように [Authlete Web API][AuthleteAPI]
 を用いて認可サーバーを自分で実装することにより、OAuth 2.0 と OpenID Connect
@@ -45,7 +45,7 @@ Authlete が提供するデフォルト実装を使うことにより、もし�
 クレデンシャルズを取得し、`authlete.ini` に設定する必要があります。
 API クレデンシャルズを取得する手順はとても簡単です。
 単にアカウントを登録するだけで済みます ([サインアップ][AuthleteSignUp])。
-詳細は [クイックガイド][AuthleteGettingStarted] を参照してください。
+詳細は[クイックガイド][AuthleteGettingStarted]を参照してください。
 
 
 実行方法
