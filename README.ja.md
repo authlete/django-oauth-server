@@ -53,8 +53,8 @@ API クレデンシャルズを取得する手順はとても簡単です。
 
 1. authlete-python ライブラリと authlete-python-django ライブラリをインストールします。
 
-        $ pip install authlete-python
-        $ pip install authlete-python-django
+        $ pip install authlete
+        $ pip install authlete-django
 
 2. この認可サーバーの実装をダウンロードします。
 

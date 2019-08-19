@@ -53,8 +53,8 @@ How To Run
 
 1. Install authlete-python and authlete-python-django libraries.
 
-        $ pip install authlete-python
-        $ pip install authlete-python-django
+        $ pip install authlete
+        $ pip install authlete-django
 
 2. Download the source code of this authorization server implementation.
 
