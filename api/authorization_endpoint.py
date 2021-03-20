@@ -126,7 +126,7 @@ class AuthorizationEndpoint(BaseEndpoint):
 
         if model.loginRequired == False:
             # The user's name that will be referred to in the authorization page.
-            model.userName = request.user.first_name
+            model.userName = request.user.first_name or request.user.username
             return model
 
         # Logout the user (if a user has logged in).
@@ -145,7 +145,7 @@ class AuthorizationEndpoint(BaseEndpoint):
         try:
             # Find the user whose subject is the required subject.
             user = User.objects.get(id=response.subject)
-        except:
+        except Exception:
             # There is no user who has the required subject.
             logger.debug("authorization_endpoint: The request fails because there is no user who has the required subject.")
             return None
