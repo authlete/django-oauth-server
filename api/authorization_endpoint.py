@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 Authlete, Inc.
+# Copyright (C) 2019-2021 Authlete, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -90,7 +90,7 @@ class AuthorizationEndpoint(BaseEndpoint):
     def __handleError(self, response):
         logger.debug("authorization_endpoint: The request caused an error: {}".format(response.resultMessage))
 
-        # Make AuthorizationReqquestErrorHandler handle the error case.
+        # Make AuthorizationRequestErrorHandler handle the error case.
         return AuthorizationRequestErrorHandler().handle(response)
 
 
@@ -205,8 +205,8 @@ class AuthorizationEndpoint(BaseEndpoint):
 
 
     def __isMaxAgeExceeded(self, request, response):
-        # If the authorization request includes a 'max_age' parameter or
-        # if the 'default_max_age' metadata of the client is set.
+        # If the authorization request does not include a 'max_age' parameter
+        # and the 'default_max_age' metadata of the client is not set.
         if response.maxAge <= 0:
             # Don't have to care about the maximum authentication age.
             return False
