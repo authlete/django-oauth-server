@@ -34,15 +34,21 @@ class AuthorizationRequestHandlerSpiImpl(AuthorizationRequestHandlerSpiAdapter):
             return None
 
         if claimName == StandardClaims.NAME:
-            return '{} {}'.format(user.first_name, user.last_name)
+            if user.first_name and user.last_name:
+                return '{} {}'.format(user.first_name, user.last_name)
         elif claimName == StandardClaims.GIVEN_NAME:
-            return user.first_name
+            if user.first_name:
+                return user.first_name
         elif claimName == StandardClaims.FAMILY_NAME:
-            return user.last_name
+            if user.last_name:
+               return user.last_name
         elif claimName == StandardClaims.EMAIL:
-            return user.email
+            if user.email:
+                return user.email
         else:
             return None
+
+        return None
 
 
     def __getUser(self, subject):
