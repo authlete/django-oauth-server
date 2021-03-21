@@ -132,3 +132,28 @@ from authlete.conf import AuthleteIniConfiguration
 AUTHLETE_API = AuthleteApiImpl(AuthleteIniConfiguration())
 AUTHLETE_API.getSettings().connectionTimeout = 5.0
 AUTHLETE_API.getSettings().readTimeout       = 5.0
+
+
+#--------------------------------------------------
+# Amazon Cognito
+#--------------------------------------------------
+
+# To use Amazon Cognito as a user database, 'CognitoBackend' (which is defined
+# in 'cognito_backend.py') needs to be recognized as an 'authentication backend'.
+# See the online document below for details.
+#
+#   Customizing authentication in Django / Specifying authentication backends
+#   https://docs.djangoproject.com/en/3.1/topics/auth/customizing/#specifying-authentication-backends
+#
+
+#AUTHENTICATION_BACKENDS = ('backends.CognitoBackend',)
+
+# In addition, COGNITO_USER_POOL_ID and COGNITO_CLIENT_ID have to be set up
+# properly. Note that ALLOW_ADMIN_USER_PASSWORD_AUTH has to be enabled for
+# the Cognito client application.
+
+#COGNITO_USER_POOL_ID = 'YOUR_COGNITO_USER_POOL_ID'
+#COGNITO_CLIENT_ID    = 'YOUR_COGNITO_CLIENT_ID'
+
+# Finally, don't forget to grant necessary permissions to the AWS account so
+# that it can call Cognito's AdminInitiateAuth API and AdminGetUser API.

@@ -131,6 +131,35 @@ ID で置き換えてください。 クライアントアプリケーション�
 (拒否ボタン) の押下が求められます。 「実行方法」で示した通りにユーザーアカウントを作成済みであれば、
 ログイン ID とパスワードはどちらも `john` です。
 
+一度ログインが成功すると、認可ページはログインフォームを表示しないかもしれません。
+ログインフォームを強制的に表示させるには、認可リクエストの末尾に `&prompt=login` を追加してください。
+
+Amazon Cognito
+--------------
+
+この実装は、[Amazon Cognito][Cognito] をユーザーデータベースとして使うサンプルコードを含んでいます。
+サンプルコードを有効にするには、次の手順を踏んでください。
+
+1. AWS SDK for Python ([Boto3][Boto3]) をインストールします。
+
+        $ pip install boto3
+
+2. `django_oauth_server/settings.py` を開き、 `AUTHENTICATION_BACKENDS` に `backends.CognitoBackend` を追加します。
+
+        AUTHENTICATION_BACKENDS = ('backends.CognitoBackend',)
+
+3. 同ファイル内の `COGNITO_USER_POOL_ID` と `COGNITO_CLIENT_ID` を適切に設定します。
+
+        COGNITO_USER_POOL_ID = 'YOUR_COGNITO_USER_POOL_ID'
+        COGNITO_CLIENT_ID    = 'YOUR_COGNITO_CLIENT_ID'
+
+Cognito ユーザープールに紐付く Cognito クライアントが `ALLOW_ADMIN_USER_PASSWORD_AUTH`
+をサポートしなければならないこと、及び、AWS アカウントが Cognito の
+[AdminInitiateAuth API][AdminInitiateAuth] と [AdminGetUser API][AdminGetUser]
+を呼ぶのに必要な権限を持っている必要があることに注意してください。
+
+詳細は [Amazon Cognito と最新の OAuth/OIDC 仕様][CognitoTutorial] を参照してください。
+
 その他の情報
 ------------
 
@@ -151,6 +180,8 @@ ID で置き換えてください。 クライアントアプリケーション�
 | 広報 | pr@authlete.com      |
 | 技術 | support@authlete.com |
 
+[AdminGetUser]:           https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminGetUser.html
+[AdminInitiateAuth]:      https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html
 [Authlete]:               https://www.authlete.com/ja/
 [AuthleteAPI]:            https://docs.authlete.com/
 [AuthleteGettingStarted]: https://www.authlete.com/ja/developers/getting_started/
@@ -158,6 +189,9 @@ ID で置き換えてください。 クライアントアプリケーション�
 [AuthletePython]:         https://github.com/authlete/authlete-python/
 [AuthletePythonDjango]:   https://github.com/authlete/authlete-python-django/
 [AuthleteSignUp]:         https://so.authlete.com/accounts/signup
+[Boto3]:                  https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
+[Cognito]:                https://aws.amazon.com/cognito/
+[CognitoTutorial]:        https://www.authlete.com/ja/developers/tutorial/cognito/
 [DeveloperConsole]:       https://www.authlete.com/ja/developers/cd_console/
 [Django]:                 https://www.djangoproject.com/
 [DjangoOAuthServer]:      https://github.com/authlete/django-oauth-server/

@@ -133,6 +133,37 @@ input login credentials and click "Authorize" button or "Deny" button. If you
 have created a user account as shown in _How To Run_, both the login ID and
 the password are `john`.
 
+Once login succeeds, the authorization page may not show the login form.
+To force the login form to appear, append `&prompt=login` at the end of the
+authorization request.
+
+Amazon Cognito
+--------------
+
+This implementation contains a sample code that uses [Amazon Cognito][Cognito]
+as a user database. To enable the sample code, follow the steps below.
+
+1. Install AWS SDK for Python ([Boto3][Boto3]).
+
+        $ pip install boto3
+
+2. Open `django_oauth_server/settings.py` and add `backends.CognitoBackend` to `AUTHENTICATION_BACKENDS`.
+
+        AUTHENTICATION_BACKENDS = ('backends.CognitoBackend',)
+
+3. Set `COGNITO_USER_POOL_ID` and `COGNITO_CLIENT_ID` in the same file properly.
+
+        COGNITO_USER_POOL_ID = 'YOUR_COGNITO_USER_POOL_ID'
+        COGNITO_CLIENT_ID    = 'YOUR_COGNITO_CLIENT_ID'
+
+Note that the Cognito client associated with the Cognito User Pool has to
+support `ALLOW_ADMIN_USER_PASSWORD_AUTH` and that the AWS account has to
+have permissions necessary to call Cognito's
+[AdminInitiateAuth API][AdminInitiateAuth] and [AdminGetUser API][AdminGetUser].
+
+See [Amazon Cognito and Latest OAuth/OIDC Specifications][CognitoTutorial]
+for details.
+
 See Also
 --------
 
@@ -153,6 +184,8 @@ Contact Form : https://www.authlete.com/contact/
 | PR        | pr@authlete.com      |
 | Technical | support@authlete.com |
 
+[AdminGetUser]:           https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminGetUser.html
+[AdminInitiateAuth]:      https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html
 [Authlete]:               https://www.authlete.com/
 [AuthleteAPI]:            https://docs.authlete.com/
 [AuthleteGettingStarted]: https://www.authlete.com/developers/getting_started/
@@ -160,6 +193,9 @@ Contact Form : https://www.authlete.com/contact/
 [AuthletePython]:         https://github.com/authlete/authlete-python/
 [AuthletePythonDjango]:   https://github.com/authlete/authlete-python-django/
 [AuthleteSignUp]:         https://so.authlete.com/accounts/signup
+[Boto3]:                  https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
+[Cognito]:                https://aws.amazon.com/cognito/
+[CognitoTutorial]:        https://www.authlete.com/developers/tutorial/cognito/
 [DeveloperConsole]:       https://www.authlete.com/developers/cd_console/
 [Django]:                 https://www.djangoproject.com/
 [DjangoOAuthServer]:      https://github.com/authlete/django-oauth-server/
