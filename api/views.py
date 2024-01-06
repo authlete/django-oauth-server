@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 Authlete, Inc.
+# Copyright (C) 2019-2024 Authlete, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ from django.conf                         import settings
 from django.views.decorators.csrf        import csrf_exempt
 from django.views.decorators.http        import require_GET, require_POST, require_http_methods
 from authlete.django.handler             import *
+from authlete.dto                        import *
 from .authorization_decision_endpoint    import AuthorizationDecisionEndpoint
 from .authorization_endpoint             import AuthorizationEndpoint
 from .introspection_endpoint             import IntrospectionEndpoint
@@ -41,6 +42,15 @@ def authorization_decision(request):
 def configuration(request):
     """Discovery Endpoint (.well-known/openid-configuration)"""
     return ConfigurationRequestHandler(settings.AUTHLETE_API).handle(request)
+
+
+@require_GET
+def federation_configuration(request):
+    """Federation Configuration Endpoint (.well-known/openid-federation)"""
+    req = FederationConfigurationRequest()
+    req.entityTypes = ['OPENID_PROVIDER', 'OPENID_CREDENTIAL_ISSUER']
+
+    return FederationConfigurationRequestHandler(settings.AUTHLETE_API).handle(req)
 
 
 @require_POST

@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls    import include, path
-from api.views      import configuration
+from api.views      import configuration, federation_configuration
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',   include('api.urls')),
     path('.well-known/openid-configuration', configuration),
+    path('.well-known/openid-federation', federation_configuration),
 ]
