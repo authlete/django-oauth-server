@@ -192,7 +192,7 @@ Contact Form : https://www.authlete.com/contact/
 [AuthleteOverview]:       https://www.authlete.com/developers/overview/
 [AuthletePython]:         https://github.com/authlete/authlete-python/
 [AuthletePythonDjango]:   https://github.com/authlete/authlete-python-django/
-[AuthleteSignUp]:         https://login.authlete.com/signup
+[AuthleteSignUp]:         https://console.authlete.com/register
 [Boto3]:                  https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
 [Cognito]:                https://aws.amazon.com/cognito/
 [CognitoTutorial]:        https://www.authlete.com/developers/tutorial/cognito/
