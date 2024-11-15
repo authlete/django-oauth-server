@@ -188,7 +188,7 @@ Cognito ユーザープールに紐付く Cognito クライアントが `ALLOW_A
 [AuthleteOverview]:       https://www.authlete.com/ja/developers/overview/
 [AuthletePython]:         https://github.com/authlete/authlete-python/
 [AuthletePythonDjango]:   https://github.com/authlete/authlete-python-django/
-[AuthleteSignUp]:         https://so.authlete.com/accounts/signup
+[AuthleteSignUp]:         https://console.authlete.com/register
 [Boto3]:                  https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
 [Cognito]:                https://aws.amazon.com/cognito/
 [CognitoTutorial]:        https://www.authlete.com/ja/developers/tutorial/cognito/
